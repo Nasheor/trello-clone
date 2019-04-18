@@ -9,6 +9,7 @@
 
 #app {
   background-color: #42f4ee;
+  height: 100%;
 }
 
 .container {

@@ -29,6 +29,7 @@
     "postcss-preset-env": "^6.3.0",
     "tailwindcss": "^0.7.0",
     "vue-cli-plugin-fontawesome": "^0.2.0",
+    "vue-cli-plugin-sass-resources-loader": "^1.0.0",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {

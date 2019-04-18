@@ -3,3 +3,9 @@ export function uid() {
     .toString(16)
     .slice(2);
 }
+
+export function saveStatePlugin(store) {
+  store.subscribe((mutation, state) => {
+    localStorage.setItem("board", JSON.stringify(state.board));
+  });
+}
