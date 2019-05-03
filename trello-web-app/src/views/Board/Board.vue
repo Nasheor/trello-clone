@@ -14,6 +14,7 @@
             class="task"
             v-for="(task, $taskIndex) in column.tasks"
             :key="$taskIndex"
+            @click="goToTask(task)"
           >
             <span class="w-full flex-no-shrink font-bold">
               {{ task.name }}
@@ -21,10 +22,15 @@
             <p
               v-if="task.description"
               class="w-full flex-no-shrink mt-1 text-sm"
-            />
+            >
+              {{ task.description }}
+            </p>
           </div>
         </div>
       </div>
+    </div>
+    <div class="task-bg" v-if="isTaskOpen" @click.self="close">
+      <router-view />
     </div>
   </div>
 </template>
