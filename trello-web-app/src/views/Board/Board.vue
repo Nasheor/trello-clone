@@ -27,6 +27,12 @@
             </p>
           </div>
         </div>
+        <input
+          type="text"
+          class="block p-2 w-full bg-transparent"
+          placeholder="+Enter a new task"
+          @keyup.enter="createTask($event, column.tasks)"
+        />
       </div>
     </div>
     <div class="task-bg" v-if="isTaskOpen" @click.self="close">

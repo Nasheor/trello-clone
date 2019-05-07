@@ -13,6 +13,13 @@ export default {
     },
     close() {
       this.$router.push({ name: "board" });
+    },
+    createTask(e, tasks) {
+      this.$store.commit("CREATE_TASK", {
+        tasks,
+        name: e.target.value
+      });
+      e.target.value = "";
     }
   }
 };
