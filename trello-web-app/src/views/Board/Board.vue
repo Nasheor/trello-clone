@@ -34,6 +34,12 @@
           @keyup.enter="createTask($event, column.tasks)"
         />
       </div>
+      <input
+        type="text"
+        class="column"
+        placeholder="+Add a new Column"
+        @keyup.enter="createColumn($event, column)"
+      />
     </div>
     <div class="task-bg" v-if="isTaskOpen" @click.self="close">
       <router-view />

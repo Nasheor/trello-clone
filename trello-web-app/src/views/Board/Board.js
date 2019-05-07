@@ -20,6 +20,13 @@ export default {
         name: e.target.value
       });
       e.target.value = "";
+    },
+    createColumn(e, columns) {
+      this.$store.commit("CREATE_COLUMN", {
+        columns,
+        name: e.target.value
+      });
+      e.target.value = "";
     }
   }
 };
