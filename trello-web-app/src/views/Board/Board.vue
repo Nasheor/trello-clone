@@ -1,8 +1,8 @@
 <template>
   <div class="board">
-    <div class="flex flex-row items-start">
+    <div class="flex flex-row flex-wrap items-start">
       <div
-        class="column"
+        class="column bg-grey-light m-4"
         v-for="(column, $columnIndex) in board.columns"
         :key="$columnIndex"
       >
@@ -36,9 +36,9 @@
       </div>
       <input
         type="text"
-        class="column"
+        class="column m-4 bg-indigo-dark"
         placeholder="+Add a new Column"
-        @keyup.enter="createColumn($event, column)"
+        @keyup.enter="createColumn($event, board.columns)"
       />
     </div>
     <div class="task-bg" v-if="isTaskOpen" @click.self="close">

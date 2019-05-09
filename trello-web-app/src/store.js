@@ -31,7 +31,6 @@ export default new Vuex.Store({
       });
     },
     UPDATE_TASK(state, { task, key, value }) {
-      //Vue.set(task, key, value);
       task[key] = value;
     },
     CREATE_COLUMN(state, { columns, name }) {
