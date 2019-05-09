@@ -36,7 +36,7 @@
       </div>
       <input
         type="text"
-        class="column m-4 bg-indigo-dark"
+        class="column m-4 bg-indigo-dark hover:bg-indigo-lighter"
         placeholder="+Add a new Column"
         @keyup.enter="createColumn($event, board.columns)"
       />
