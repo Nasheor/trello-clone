@@ -3,7 +3,7 @@
     <div class="flex flex-row flex-wrap items-start">
       <div
         class="column bg-grey-light m-4"
-        v-for="(column, $columnIndex) in board.columns"
+        v-for="(column, $columnIndex) of board.columns"
         :key="$columnIndex"
         @drop="moveTask($event, column.tasks)"
         @dragover.prevent
@@ -15,7 +15,7 @@
         <div class="list-reset">
           <div
             class="task"
-            v-for="(task, $taskIndex) in column.tasks"
+            v-for="(task, $taskIndex) of column.tasks"
             :key="$taskIndex"
             draggable
             @dragstart="pickupTask($event, $taskIndex, $columnIndex)"

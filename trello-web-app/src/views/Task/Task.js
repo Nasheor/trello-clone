@@ -5,6 +5,7 @@ export default {
     ...mapGetters(["getTask"]),
     task() {
       // eslint-disable-next-line
+      console.log("1");
       return this.getTask(this.$route.params.id);
     }
   },
