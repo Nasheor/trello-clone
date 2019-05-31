@@ -27,6 +27,24 @@ export default {
         name: e.target.value
       });
       e.target.value = "";
+    },
+    pickupTask(e, taskIndex, fromColumnIndex) {
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.dropEffect = "move";
+
+      e.dataTransfer.setData("task-index", taskIndex);
+      e.dataTransfer.setData("from-column-index", fromColumnIndex);
+    },
+    moveTask(e, toTasks) {
+      const fromColumnIndex = e.dataTransfer.getData("from-column-index");
+      const fromTasks = this.board.columns[fromColumnIndex].tasks;
+      const taskIndex = e.dataTransfer.getData("task-index");
+
+      this.$store.commit("MOVE_TASK", {
+        fromTasks,
+        toTasks,
+        taskIndex
+      });
     }
   }
 };

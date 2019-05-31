@@ -5,6 +5,9 @@
         class="column bg-grey-light m-4"
         v-for="(column, $columnIndex) in board.columns"
         :key="$columnIndex"
+        @drop="moveTask($event, column.tasks)"
+        @dragover.prevent
+        @dragenter.prevent
       >
         <div class="flex items-center mb-2 font-bold">
           {{ column.name }}
@@ -14,6 +17,8 @@
             class="task"
             v-for="(task, $taskIndex) in column.tasks"
             :key="$taskIndex"
+            draggable
+            @dragstart="pickupTask($event, $taskIndex, $columnIndex)"
             @click="goToTask(task)"
           >
             <span class="w-full flex-no-shrink font-bold">
