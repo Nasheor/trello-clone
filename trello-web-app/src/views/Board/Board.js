@@ -35,8 +35,8 @@ export default {
       e.dataTransfer.setData("task-index", taskIndex);
       e.dataTransfer.setData("from-column-index", fromColumnIndex);
     },
-    moveTask(e, toTasks) {
-      console.log(e);
+    dropTask(e, toTasks) {
+      // console.log(e);
       const fromColumnIndex = e.dataTransfer.getData("from-column-index");
       const fromTasks = this.board.columns[fromColumnIndex].tasks;
       const taskIndex = e.dataTransfer.getData("task-index");

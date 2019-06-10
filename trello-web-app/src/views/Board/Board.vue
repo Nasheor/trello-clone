@@ -5,7 +5,7 @@
         class="column bg-grey-light m-4"
         v-for="(column, $columnIndex) of board.columns"
         :key="$columnIndex"
-        @drop="moveTask($event, column.tasks)"
+        @drop="dropTask($event, column.tasks)"
         @dragover.prevent
         @dragenter.prevent
       >
