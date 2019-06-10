@@ -32,20 +32,34 @@ export default {
       e.dataTransfer.effectAllowed = "move";
       e.dataTransfer.dropEffect = "move";
 
-      e.dataTransfer.setData("task-index", taskIndex);
+      e.dataTransfer.setData("from-task-index", taskIndex);
       e.dataTransfer.setData("from-column-index", fromColumnIndex);
+      e.dataTransfer.setData("type", "task");
     },
-    dropTask(e, toTasks) {
+    pickupColumn(e, fromColumnIndex) {
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.dropEffect = "move";
+      e.dataTransfer.setData("from-column-index", fromColumnIndex);
+      e.dataTransfer.setData("type", "column");
+    },
+    dropColumnOrTask(e, toTasks, toColumnIndex) {
       // console.log(e);
       const fromColumnIndex = e.dataTransfer.getData("from-column-index");
-      const fromTasks = this.board.columns[fromColumnIndex].tasks;
-      const taskIndex = e.dataTransfer.getData("task-index");
+      if (e.dataTransfer.getData("type" === "task")) {
+        const fromTasks = this.board.columns[fromColumnIndex].tasks;
+        const taskIndex = e.dataTransfer.getData("from-task-index");
 
-      this.$store.commit("MOVE_TASK", {
-        fromTasks,
-        toTasks,
-        taskIndex
-      });
+        this.$store.commit("MOVE_TASK", {
+          fromTasks,
+          toTasks,
+          taskIndex
+        });
+      } else {
+        this.$store.commit("MOVE_COLUMN", {
+          fromColumnIndex,
+          toColumnIndex
+        });
+      }
     }
   }
 };
