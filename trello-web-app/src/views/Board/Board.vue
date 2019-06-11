@@ -22,7 +22,7 @@
             @dragstart="pickupTask($event, $taskIndex, $columnIndex)"
             @click="goToTask(task)"
             @drop.stop="
-              moveTaskOrColumn(($event, column.tasks, $columnIndex, $taskIndex))
+              dropColumnOrTask(($event, column.tasks, $columnIndex, $taskIndex))
             "
           >
             <span class="w-full flex-no-shrink font-bold">

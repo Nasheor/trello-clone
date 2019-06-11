@@ -45,7 +45,8 @@ export default {
     dropColumnOrTask(e, toTasks, toColumnIndex) {
       // console.log(e);
       const fromColumnIndex = e.dataTransfer.getData("from-column-index");
-      if (e.dataTransfer.getData("type" === "task")) {
+      const type = e.dataTransfer.getData("type");
+      if (type === "task") {
         const fromTasks = this.board.columns[fromColumnIndex].tasks;
         const taskIndex = e.dataTransfer.getData("from-task-index");
 
