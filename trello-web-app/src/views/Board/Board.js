@@ -42,24 +42,35 @@ export default {
       e.dataTransfer.setData("from-column-index", fromColumnIndex);
       e.dataTransfer.setData("type", "column");
     },
-    dropColumnOrTask(e, toTasks, toColumnIndex) {
-      // console.log(e);
+    moveTask(e, toTasks, toTaskIndex) {
       const fromColumnIndex = e.dataTransfer.getData("from-column-index");
+      const fromTaskIndex = e.dataTransfer.getData("from-task-index");
+      const fromTasks = this.board.columns[fromColumnIndex].tasks;
+
+      this.$store.commit("MOVE_TASK", {
+        fromTasks,
+        fromTaskIndex,
+        toTasks,
+        toTaskIndex
+      });
+    },
+    moveColumn(e, toColumnIndex) {
+      const fromColumnIndex = e.dataTransfer.getData("from-column-index");
+      this.$store.commit("MOVE_COLUMN", {
+        fromColumnIndex,
+        toColumnIndex
+      });
+    },
+    dropColumnOrTask(e, toTasks, toColumnIndex, toTaskIndex) {
       const type = e.dataTransfer.getData("type");
       if (type === "task") {
-        const fromTasks = this.board.columns[fromColumnIndex].tasks;
-        const taskIndex = e.dataTransfer.getData("from-task-index");
-
-        this.$store.commit("MOVE_TASK", {
-          fromTasks,
+        this.moveTask(
+          e,
           toTasks,
-          taskIndex
-        });
+          toTaskIndex !== undefined ? toTaskIndex : toTasks.length
+        );
       } else {
-        this.$store.commit("MOVE_COLUMN", {
-          fromColumnIndex,
-          toColumnIndex
-        });
+        this.moveColumn(e, toColumnIndex);
       }
     }
   }

@@ -8,7 +8,7 @@
         @drop="dropColumnOrTask($event, column.tasks, $columnIndex)"
         @dragover.prevent
         @dragenter.prevent
-        @dragstart.self="pickupColumn($event, $columnIndex)"
+        @dragstart="pickupColumn($event, $columnIndex)"
       >
         <div class="flex items-center mb-2 font-bold">
           {{ column.name }}
