@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import Vue from "vue";
 import Router from "vue-router";
-import Board from "./views/Board/Board.vue";
-import Task from "./views/Task/Task.vue";
+import Board from "@/views/pages/Board/Board.vue";
+import Task from "@/views/modals/Task/Task.vue";
 
 Vue.use(Router);
 
@@ -19,6 +19,6 @@ export default new Router({
         name: 'task',
         component: Task
       }]
-    }
+    },
   ]
 });
