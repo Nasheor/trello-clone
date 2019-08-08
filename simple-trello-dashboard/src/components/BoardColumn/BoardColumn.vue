@@ -1,29 +1,22 @@
 <template>
-    <div>
-      <div class="column bg-grey-light m-4" v-if="isTaskOpen === false">
+    <div
+        draggable
+        @dragover.prevent
+        @dragenter.prevent
+        @drop="dropColumnOrTask($event, column.tasks, $columnIndex)"
+        @dragstart="pickupColumn($event, $columnIndex)">
+      <div class="column bg-grey-light m-4">
           <div class="flex items-center mb-2 font-bold">
             {{ getColumnName() }}
           </div>
           <div class="list-reset">
-            <div
+            <TaskCard
               class="task"
               v-for="(task, $taskIndex) of columnData.tasks"
               :key="$taskIndex"
-              draggable
-              @dragstart="pickupTask($event, $taskIndex)"
-              @click="goToTask(task)"
-              @drop.stop="dropColumnOrTask(($event, columnData.tasks, $taskIndex))"
-            >
-              <span class="w-full flex-no-shrink font-bold">
-                {{ task.name }}
-              </span>
-              <p
-                v-if="task.description"
-                class="w-full flex-no-shrink mt-1 text-sm"
-              >
-                {{ task.description }}
-              </p>
-            </div>
+              v-bind:task = "task"
+              v-bind:taskIndex = "$taskIndex"
+            />
           </div>
           <input
             type="text"
@@ -31,9 +24,6 @@
             placeholder="+Enter a new task"
             @keyup.enter="createTask($event, columnData.tasks)"
           />
-      </div>
-      <div class="task-bg" @click.self="close" v-else>
-          <router-view />
       </div>
     </div>
 </template>

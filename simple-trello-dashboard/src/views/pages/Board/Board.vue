@@ -1,15 +1,11 @@
 <template>
   <div class="board">
     <div class="flex flex-row flex-wrap items-start">
-      <BoardColumn 
-        v-for = "(column, $columnIndex) of board.columns"
-        :key = "$columnIndex"
+      <BoardColumn
+        v-for="(column, $columnIndex) of board.columns"
+        :key="$columnIndex"
         v-bind:columnData="column"
         v-bind:columnIndex="$columnIndex"
-        @drop="dropColumnOrTask($event, column.tasks, $columnIndex)"
-        @dragover.prevent
-        @dragenter.prevent
-        @dragstart="pickupColumn($event, $columnIndex)"
       />
       <input
         type="text"
