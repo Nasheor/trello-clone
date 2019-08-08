@@ -1,5 +1,5 @@
 export default {
-  props: ["task", "taskIndex"],
+  props: ["task", "taskIndex", "columnIndex"],
   data() {
     return {
       isTaskOpen: false

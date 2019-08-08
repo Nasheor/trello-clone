@@ -16,24 +16,23 @@ export default {
       });
       e.target.value = "";
     },
-    moveColumn(e, toColumnIndex) {
-      const fromColumnIndex = e.dataTransfer.getData("from-column-index");
+    setPickColumnInfo(e, fromColumnIndex) {
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.dropEffect = "move";
+      e.dataTransfer.setData("from-column-index", fromColumnIndex);
+      e.dataTransfer.setData("type", "column");
+    },
+    moveColumn(fromColumnIndex, toColumnIndex) {
       this.$store.commit("MOVE_COLUMN", {
         fromColumnIndex,
         toColumnIndex
       });
     },
-    dropColumnOrTask(e, toTasks, toTaskIndex) {
-      const type = e.dataTransfer.getData("type");
-      if (type === "task") {
-        this.moveTask(
-          e,
-          toTasks,
-          toTaskIndex !== undefined ? toTaskIndex : toTasks.length
-        );
-      } else {
-        this.moveColumn(e, this.columnIndex);
-      }
+    dropColumn(e, toColumnIndex) {
+      this.moveColumn(
+        e.dataTransfer.getData("from-column-index"),
+        toColumnIndex
+      );
     }
   }
 };
