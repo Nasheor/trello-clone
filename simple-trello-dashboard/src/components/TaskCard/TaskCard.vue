@@ -3,8 +3,8 @@
     draggable
     @dragover.prevent
     @dragenter.prevent
-    @dragstart="pickupTask($event, taskIndex)"
-    @dragend="dropColumnOrTask($event, columnData.tasks, taskIndex)"
+    @dragstart="setPickupTaskInfo($event, taskIndex, columnIndex)"
+    @dragend="dropTask($event, taskIndex, columnIndex)"
     @click="goToTask(task)"
     v-if="isTaskOpen === false"
   >
