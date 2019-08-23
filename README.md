@@ -1,7 +1,7 @@
 # Simple Trello Dashboard
 
 <h2 align="center">
-  <img width="250" src="https://github.com/Nasheor/trello-clone/blob/master/simple-trello-dashboard/src/assets/images/trello-shot.png?raw=true" alt="trello-clone hex logo" />
+  <img width="500" height="500" src="https://github.com/Nasheor/trello-clone/blob/master/simple-trello-dashboard/src/assets/images/trello-shot.png?raw=true" alt="trello-clone hex logo" />
 </h2>
 
 ## Prerequisites
