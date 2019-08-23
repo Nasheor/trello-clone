@@ -1,7 +1,7 @@
 # Simple Trello Dashboard
 
 <h2 align="center">
-  <a href="https://github.com/Nasheor/trello-clone/tree/master/simple-trello-dashboard/src/assets/images/trello-shot.png"><img width="250" src="https://github.com/Nasheor/trello-clone/tree/master/simple-trello-dashboard/src/assets/images/trello-shot.png" alt="trello-clone hex logo" /></a>
+  <img width="250" src="https://github.com/Nasheor/trello-clone/blob/master/simple-trello-dashboard/src/assets/images/trello-shot.png?raw=true" alt="trello-clone hex logo" />
 </h2>
 
 ## Prerequisites
@@ -15,5 +15,3 @@ You must have the following installed and configured in your machine to run the 
 2. Run `npm install`
 3. Now run `npm run serve`
 4. Open `http://localhost:8080/` in your browser
-
-
